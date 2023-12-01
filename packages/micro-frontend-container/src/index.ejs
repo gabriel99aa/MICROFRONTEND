@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: localhost:* 'unsafe-inline'; img-src 'self' data: https: localhost:* 'unsafe-inline';"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cereza app</title>
+    <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+    <meta name="importmap-type" content="systemjs-importmap" />
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+          "react": "https://unpkg.com/react@17/umd/react.development.js",
+          "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        }
+      }
+    </script>
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
+      as="script"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <% if (isLocal) { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@vr/root-config": "//localhost:9000/vr-root-config.js",
+          "@vr/cereza-employee": "//localhost:9001/vr-cereza-employee.js",
+          "@vr/cereza-organization": "//localhost:9002/vr-cereza-organization.js",
+          "@vr/cereza-auth": "//localhost:9003/vr-cereza-auth.js"
+        }
+      }
+    </script>
+    <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@vr/root-config": "//app.cereza.dev/vr-root-config.js",
+          "@vr/cereza-employee": "//app.cereza.dev/vr-cereza-employee.js",
+          "@vr/cereza-organization": "//app.cereza.dev/vr-cereza-organization.js",
+          "@vr/cereza-auth": "//app.cereza.dev/vr-cereza-auth.js"
+        }
+      }
+    </script>
+    <% } %>
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+    <% if (isLocal) { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <% } else { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <% } %>
+  </head>
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <script>
+      System.import("@vr/root-config");
+    </script>
+    <import-map-overrides-full
+      show-when-local-storage="devtools"
+      dev-libs
+    ></import-map-overrides-full>
+    <!-- <script type="text/javascript" id="zsiqchat">
+      var $zoho = $zoho || {};
+      $zoho.salesiq = $zoho.salesiq || {
+        widgetcode:
+          "siq0843a4318d16fb5c9dbb4fa3854c31913838f889132b46d39573010740660184",
+        values: {},
+        ready: function () {},
+      };
+      var d = document;
+      s = d.createElement("script");
+      s.type = "text/javascript";
+      s.id = "zsiqscript";
+      s.defer = true;
+      s.src = "https://salesiq.zohopublic.com/widget";
+      t = d.getElementsByTagName("script")[0];
+      t.parentNode.insertBefore(s, t);
+    </script> -->
+  </body>
+</html>

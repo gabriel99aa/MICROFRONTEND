@@ -1,0 +1,12 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declarationDir": "dist"
+  },
+  "files": ["src/vr-cereza-employee.js"],
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*"]
+}

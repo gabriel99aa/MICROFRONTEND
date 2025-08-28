@@ -32,7 +32,7 @@ export default function App() {
                 element={<Callback />}
                 key={"callback"}
               />
-              <Route path="*" element={<Navigate to="/home/indicators" />} />
+              <Route path="*" element={<Navigate to="/cereza" />} />
             </Routes>
           </Router>
         </Suspense>

@@ -17,7 +17,7 @@ const router = () => {
   }
 };
 
-const routes = constructRoutes(router());
+const routes = constructRoutes(microfrontendLayoutAdmin);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
